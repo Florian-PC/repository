@@ -6,6 +6,10 @@ import javax.servlet.ServletException;
 import javax.servlet.http.HttpServletRequest;
 import javax.servlet.http.HttpServletResponse;
 
+/**
+ * @author florianpuzenat
+ * interface of commands used by the front controler (MVC1 achetype)
+ */
 public interface ICommand {
 
 	String execute(HttpServletRequest request, HttpServletResponse response)

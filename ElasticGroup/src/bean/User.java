@@ -1,5 +1,12 @@
 package bean;
 
+/**
+ * @author florianpuzenat
+ * User Part of the app
+ * TODO replace it with log4j
+ * 
+ * @param faiLog is used to see if the user failed his login already once (and show adequate error message)
+ */
 public class User {
 //attribut
 	private String log;
@@ -43,6 +50,9 @@ public class User {
 	}
 //Methods
 	
+	/**
+	 * @return true/false if combo username+password are correct
+	 */
 	public boolean validate() {
 		if (log.equals("") && pass.equals("")) {
 			//log ok

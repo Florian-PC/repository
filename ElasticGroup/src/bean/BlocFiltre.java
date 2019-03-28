@@ -4,16 +4,28 @@ import java.util.ArrayList;
 import java.util.List;
 
 
+/**
+ * @author florianpuzenat
+ * Class comportant des categorie(listes) de filtres
+ */
 public class BlocFiltre {
 
 	private int idBlocFiltre;
 	private String libelleBlocFiltre;
 	private List<Filtre> listFiltre= new ArrayList<Filtre>();
 	
+	/**
+	 * Constructeur
+	 */
 	public BlocFiltre() {
 		super();
 	}
 
+	/**
+	 * Constructeur
+	 * @param idBlocFiltre
+	 * @param libelleBlocFiltre
+	 */
 	public BlocFiltre(int idBlocFiltre, String libelleBlocFiltre) {
 		super();
 		this.idBlocFiltre = idBlocFiltre;
@@ -21,6 +33,12 @@ public class BlocFiltre {
 	}
 	
 	
+	/**
+	 * Constructeur
+	 * @param idBlocFiltre
+	 * @param libelleBlocFiltre
+	 * @param listFiltre
+	 */
 	public BlocFiltre(int idBlocFiltre, String libelleBlocFiltre, List<Filtre> listFiltre) {
 		super();
 		this.idBlocFiltre = idBlocFiltre;
@@ -30,30 +48,51 @@ public class BlocFiltre {
 
 	
 	
+	/**
+	 * @return idBlocFiltre
+	 */
 	public int getIdBlocFiltre() {
 		return idBlocFiltre;
 	}
 
+	/**
+	 * @return libelleFiltre
+	 */
 	public String getLibelleBlocFiltre() {
 		return libelleBlocFiltre;
 	}
 
+	/**
+	 * @return listFiltre
+	 */
 	public List<Filtre> getListFiltre() {
 		return listFiltre;
 	}
 
+	/**
+	 * @param idBlocFiltre
+	 */
 	public void setIdBlocFiltre(int idBlocFiltre) {
 		this.idBlocFiltre = idBlocFiltre;
 	}
 
+	/**
+	 * @param libelleBlocFiltre
+	 */
 	public void setLibelleBlocFiltre(String libelleBlocFiltre) {
 		this.libelleBlocFiltre = libelleBlocFiltre;
 	}
 
+	/**
+	 * @param listFiltre
+	 */
 	public void setListFiltre(List<Filtre> listFiltre) {
 		this.listFiltre = listFiltre;
 	}
 
+	/**
+	 * @return checked filter from the list
+	 */
 	public boolean isAllChecked() {
 		int i = 0 ;
 		for (Filtre indiceFiltre : this.listFiltre) {
@@ -69,6 +108,9 @@ public class BlocFiltre {
 		
 	}
 	
+	/**
+	 * @return String for oracle SQL
+	 */
 	public String getINSQL(){
 		String s ="";
 		if (!this.isAllChecked()) {

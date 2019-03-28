@@ -8,6 +8,11 @@ import javax.servlet.http.HttpServletResponse;
 import bean.User;
 import service.Service;
 
+/**
+ * @author florianpuzenat
+ * @see controler.FrontController
+ * command return JPS catologue  if login success
+ */
 public class CommandLogin implements ICommand {
 
 	@Override

@@ -15,11 +15,16 @@ import model.DAOSSFamille;
 public class ServiceFiltre {
 
 	
+	/**
+	 * Create a list of bloc Filtre from selected database
+	 * @return listBlocFiltre
+	 */
 	@SuppressWarnings({ "rawtypes", "serial", "unchecked" })
 	public List<BlocFiltre> createFiltre () {
-	//créer des Blocs de Filtre pour chaque famille de filtre
+		//create a blocFiltre for eache type of filter
+		
 				
-	// Lister les DAO pour 
+		// List DAO which need filtering (néologisme) 
 		List<DAO> listDAO =  new ArrayList<DAO>(){{
 			add(new DAOFamille());
 			add(new DAOSSFamille());
@@ -30,9 +35,10 @@ public class ServiceFiltre {
 		List<BlocFiltre> listBlocFiltre = new ArrayList<BlocFiltre>();
 		
 		
-		// Pour chaque element du tableau des DAO
+		// for each element of the DAO list
 		for (DAO indiceDAO : listDAO)
 		{ 
+			// And... too lazy to translate something nobody gonna read :-)
 			// Préparation de la liste des filtres pour le constructeur des BlocFiltre
 			List<Filtre> listFiltre = new ArrayList<Filtre>();
 			
@@ -50,16 +56,9 @@ public class ServiceFiltre {
 			// Creation du BlocFiltre avec l'index de la DAO, le nom donné à la Table et la liste de Filtres 
 			listBlocFiltre.add(new BlocFiltre(listDAO.indexOf(indiceDAO), indiceDAO.getNomTable(), listFiltre));
 		}
+		
 	return listBlocFiltre;
 	}
 	
-	
-	public List<BlocFiltre> getCheckedFiltre (List<BlocFiltre> listBlocFiltre) {
-		
-		
-		
-		
-		
-		return listBlocFiltre;
-	}
+
 }

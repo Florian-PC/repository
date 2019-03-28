@@ -3,6 +3,11 @@ package bean;
 import java.util.ArrayList;
 import java.util.List;
 
+/**
+ * @author florianpuzenat
+ * TODO will be used as a bean for listing shopping cart 
+ * not in use as of now
+ */
 public class Panier {
 
 	private User client;

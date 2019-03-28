@@ -13,10 +13,10 @@
 			<% 	for (Filtre indiceFiltre : indiceBlocFiltre.getListFiltre()) { %>
 					<div>
 					<input type="checkbox"
-					id="<%= indiceBlocFiltre.getLibelleBlocFiltre()+ " " +indiceFiltre.getLibelleFiltre() %>"
-					name="<%= indiceBlocFiltre.getLibelleBlocFiltre()+ " " +indiceFiltre.getLibelleFiltre() %>"
+					id="<%= indiceBlocFiltre.getIdBlocFiltre()+ " " +indiceFiltre.getIdFiltre() %>"
+					name="<%= indiceBlocFiltre.getIdBlocFiltre()+ " " +indiceFiltre.getIdFiltre() %>"
 					<%= indiceFiltre.getChecked()%>> 
-					<label for="<%= indiceBlocFiltre.getLibelleBlocFiltre()+ " " +indiceFiltre.getLibelleFiltre() %>">
+					<label for="<%= indiceBlocFiltre.getIdBlocFiltre()+ " " +indiceFiltre.getIdFiltre() %>">
 					<%	if( indiceFiltre.getColorFiltre() != null) { %>
 							<div
 								style='	width:30px;

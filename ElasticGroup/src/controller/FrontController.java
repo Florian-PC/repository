@@ -10,7 +10,10 @@ import javax.servlet.http.HttpServletResponse;
 import javax.servlet.http.HttpSession;
 
 import bean.BeanBrowser;
+import bean.BlocFiltre;
+import bean.Filtre;
 import command.ICommand;
+import service.Service;
 
 /**
  * Servlet implementation class FrontController
@@ -25,22 +28,18 @@ public class FrontController extends HttpServlet {
      */
     public FrontController() {
         super();
-        // TODO Auto-generated constructor stub
     }
 
 	/**
 	 * @see Servlet#init(ServletConfig)
 	 */
 	public void init(ServletConfig config) throws ServletException {
-		// TODO Auto-generated method stub
-		
 	}
 
 	/**
 	 * @see Servlet#destroy()
 	 */
 	public void destroy() {
-		// TODO Auto-generated method stub
 	}
 
 	/**
@@ -57,22 +56,42 @@ public class FrontController extends HttpServlet {
 		doProcess(request, response);
 	}
 
+	/**
+	 * @param request
+	 * @param response
+	 * @throws ServletException
+	 * @throws IOException
+	 */
 	protected void doProcess(HttpServletRequest request, HttpServletResponse response) throws ServletException, IOException {
 		
-		//Recuperation de la session active et création si elle n'existe pas
+		// session or create it if it does not exist yet
 		HttpSession session = request.getSession(true);
-		//si le bean browser n'existe pas deja on l'instancie
+		//create a beanbrowser if none are
 		if (session.getAttribute("beanBrowser") == null) {
 			session.setAttribute("beanBrowser", new BeanBrowser());
 		}		
 		
-		//recupération de l'url appelée
+		//Update beanbrowser with checked filter
+		for (BlocFiltre indiceBlocFiltre : Service.getSessionBeanBrowser(request).getListBlocFiltre()) 
+		{ 
+		    for (Filtre indiceFiltre : indiceBlocFiltre.getListFiltre()) {
+		    	if (request.getParameterValues(indiceBlocFiltre.getIdBlocFiltre()+" "+indiceFiltre.getIdFiltre())==null) {
+		    		indiceFiltre.setChecked(false);
+		    	} else {
+		    		indiceFiltre.setChecked(true);
+		    	};
+		    }
+		}
+		
+		
+		//get cmd parameter from the url from action used in JSP
 		String cmd = request.getParameter("cmd");
 				
 		String urlSuivante = null;
-		System.out.println(1 + urlSuivante);
+		
+		// Selecting the right command to call and executing it to get URL for to dispatch next
+		// calling login jsp as default new entry
 		if (cmd != null) {
-			//Instantiation de la class correspondante a la commande dmde
 			try {
 				ICommand command = (ICommand) Class.forName("command." + cmd).newInstance();
 				urlSuivante = command.execute(request, response);
@@ -82,12 +101,11 @@ public class FrontController extends HttpServlet {
 				urlSuivante = "/WEB-INF/jsp/unknowcmd.jsp";
 			}
 
-			//execution et récuperation de L'url a forwardé
+
 		}else {
 			urlSuivante = "/WEB-INF/jsp/login.jsp";
 		}
-		System.out.println(urlSuivante);
-		//forward vers l'url donné par l'action
+		//forward to the selected url 
 		request.getRequestDispatcher(urlSuivante).forward( request, response );
 	}
 	

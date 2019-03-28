@@ -1,43 +1,49 @@
 @charset "UTF-8";
 
+/* Toutes les pages */
  #catalogue, #login{
      background-color: #595959 ;
-     color: #ffffff ;}
+     color: black ;}
+ 
+ /* header */
  #header {
-     display: inline-block;
-     vertical-align: text-top;
-     text-align: center;
+     	display: inline-block;
+		horizontal-align: center;
+     	text-align: center;
 }
+ /* logo du header */
  #header img{
      height: 5%;
      width: 5%;
      padding-top: 5px;
      vertical-align: bottom;
 }
+/* nom entreprise header */
  #header h1{
      font-family: sans-serif;
      display: inline;
 }
- #header label{
-     text-align: left;
-}
+
+
  #login div {
  	align : center;
  }
 
-
+/* Zone Filtres */
  #sidefiltre {
      display: inline-block;
      vertical-align: text-top;
      width: 25%;
      text-align: left;
 }
+/* BlocFiltre */
  #sidefiltre fieldset{
      max-height: 400px;
      min-width: 0;
      text-overflow: clip;
      overflow-y: auto;
 }
+/* Filtre */
  #sidefiltre fieldset div{
      padding-top: 2px;
      padding-bottom: 2px;
@@ -47,18 +53,17 @@
      text-overflow: clip;
      overflow: hidden;
 }
+/* Carré couleur du filtre couleur */
  #sidefiltre fieldset div div{
      vertical-align: bottom;
 }
- #magasin {
- 
-=======
- body {
-}
+
+/* Toutes les pages */
  #catalogue, #login{
      background-color: #595959 ;
      color: #ffffff ;}
- #header {
+/* header */
+/* #header {
      display: inline-block;
      vertical-align: text-top;
      text-align: center;
@@ -110,4 +115,4 @@
 >>>>>>> branch 'master' of https://github.com/Florian-PC/repository.git
      vertical-align: text-top;
 }
- 
+  */
