@@ -1,8 +1,7 @@
 package bean;
 
 /**
- * @author florianpuzenat
- * bean Filtre
+ * @author florianpuzenat bean Filtre
  */
 public class Filtre {
 
@@ -10,7 +9,7 @@ public class Filtre {
 	private String libelleFiltre;
 	private String colorFiltre;
 	private boolean checked;
-	
+
 	/**
 	 * Constructeur
 	 */
@@ -21,6 +20,7 @@ public class Filtre {
 
 	/**
 	 * Constructeur
+	 * 
 	 * @param idFiltre
 	 * @param libelleFiltre
 	 */
@@ -31,9 +31,10 @@ public class Filtre {
 		this.checked = false;
 		this.colorFiltre = null;
 	}
-	
+
 	/**
 	 * Constructeur
+	 * 
 	 * @param idFiltre
 	 * @param libelleFiltre
 	 * @param colorFiltre
@@ -66,14 +67,14 @@ public class Filtre {
 	public boolean isChecked() {
 		return checked;
 	}
-	
+
 	/**
 	 * @return String if checked (from checkbox)
 	 */
 	public String getChecked() {
 		if (checked) {
 			return "checked";
-		}else {
+		} else {
 			return "";
 		}
 	}
@@ -84,7 +85,7 @@ public class Filtre {
 	public String getColorFiltre() {
 		return colorFiltre;
 	}
-	
+
 	/**
 	 * @param idFiltre
 	 */
@@ -105,16 +106,12 @@ public class Filtre {
 	public void setChecked(boolean checked) {
 		this.checked = checked;
 	}
-	
+
 	/**
-	 * @param colorFiltre 
+	 * @param colorFiltre
 	 */
 	public void setcolorFiltre(String colorFiltre) {
-		this.colorFiltre=colorFiltre;
+		this.colorFiltre = colorFiltre;
 	}
-	
-	
-	
-	
-	
+
 }

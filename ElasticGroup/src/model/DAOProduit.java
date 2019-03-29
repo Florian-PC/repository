@@ -7,12 +7,12 @@ import java.util.ArrayList;
 import java.util.List;
 
 import bean.Famille;
-import bean.Marque;
+import bean.SSFamille;
 
 /**
  * @author nico
  */
-public class DAOMarque implements DAO<Marque> {
+public class DAOProduit implements DAO<Famille> {
 
 	/*
 	 * (non-Javadoc)
@@ -20,7 +20,7 @@ public class DAOMarque implements DAO<Marque> {
 	 * @see DAO#create(java.lang.Object)
 	 */
 	@Override
-	public Marque create(Marque obj) {
+	public Famille create(Famille obj) {
 		return null;
 	}
 
@@ -30,7 +30,7 @@ public class DAOMarque implements DAO<Marque> {
 	 * @see DAO#delete(java.lang.Object)
 	 */
 	@Override
-	public Marque delete(Marque obj) {
+	public Famille delete(Famille obj) {
 		// TODO Auto-generated method stub
 		return null;
 	}
@@ -41,7 +41,7 @@ public class DAOMarque implements DAO<Marque> {
 	 * @see DAO#update(java.lang.Object)
 	 */
 	@Override
-	public Marque update(Marque obj) {
+	public Famille update(Famille obj) {
 		// TODO Auto-generated method stub
 		return null;
 	}
@@ -52,12 +52,12 @@ public class DAOMarque implements DAO<Marque> {
 	 * @see DAO#find(int)
 	 */
 	@Override
-	public Marque find(int id) {
+	public Famille find(int id) {
 
-		Marque mark = null;
+		Famille fam = null;
 
 		// requete
-		String requete = ("SELECT * FROM fabricant WHERE ID_FABRICANT = " + id);
+		String requete = ("SELECT * FROM famille WHERE ID_FAMILLE = " + id);
 
 		try {
 
@@ -70,8 +70,8 @@ public class DAOMarque implements DAO<Marque> {
 
 			// s'il y a un resultat, je cree l'objet fam avec les donnees trouvees
 			if (result.first()) {
-				mark = new Marque(id, result.getString("NOM_FABRICANT"));
-				System.out.println("Marque trouvée");
+				fam = new Famille(id, result.getString("NOM_FAMILLE"));
+				System.out.println("Famille trouvée");
 			}
 			// puis fermeture de la connexion
 
@@ -81,7 +81,7 @@ public class DAOMarque implements DAO<Marque> {
 		} catch (SQLException e) {
 			e.printStackTrace();
 		}
-		return mark;
+		return fam;
 	}
 
 	/*
@@ -90,11 +90,11 @@ public class DAOMarque implements DAO<Marque> {
 	 * @see DAO#getListe()
 	 */
 	@Override
-	public List<Marque> findAll() {
+	public List<Famille> findAll() {
 
-		ArrayList<Marque> listeMark = new ArrayList<Marque>();
+		ArrayList<Famille> listeFam = new ArrayList<Famille>();
 
-		String requete = "SELECT * FROM fabricant ORDER BY ID_FABRICANT";
+		String requete = "SELECT * FROM famille ORDER BY ID_FAMILLE";
 
 		try {
 
@@ -104,10 +104,10 @@ public class DAOMarque implements DAO<Marque> {
 
 			// tant que...
 			while (result.next()) {
-				listeMark.add(new Marque(result.getInt("ID_FABRICANT"), result.getString("NOM_FABRICANT")));
+				listeFam.add(new Famille(result.getInt("ID_FAMILLE"), result.getString("NOM_FAMILLE")));
 
 			}
-			System.out.println(listeMark.size() + " marques créées.");
+			System.out.println(listeFam.size() + " Familles créées.");
 			// puis fermeture de la connexion
 			stmt.close();
 			System.out.println("Fermeture connexion ok");
@@ -116,13 +116,13 @@ public class DAOMarque implements DAO<Marque> {
 			e.printStackTrace();
 		}
 
-		return listeMark;
+		return listeFam;
 	}
 
 	@Override
 	public String getNomTable() {
 		// TODO Auto-generated method stub
-		return "Marque";
+		return "Famille";
 	}
 
 }

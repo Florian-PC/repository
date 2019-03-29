@@ -1,79 +1,111 @@
 package bean;
 
+/**
+ * bean produit
+ * 
+ * @author florianpuzenat
+ *
+ */
 public class Produit {
 
 	private int idArticle;
 	private String libelleArticle;
-	private int stockArticle;
+
 	private Famille famille;
 	private SSFamille ssFamille;
 	private Marque marque;
-	
+
+	/**
+	 * 
+	 */
 	public Produit() {
 		super();
 	}
 
-	public Produit(int idArticle, String libelleArticle, int stockArticle, Famille famille, SSFamille ssFamille,
-			Marque marque) {
+	/**
+	 * @param idArticle
+	 * @param libelleArticle
+	 * @param famille
+	 * @param ssFamille
+	 * @param marque
+	 */
+	public Produit(int idArticle, String libelleArticle, Famille famille, SSFamille ssFamille, Marque marque) {
 		super();
 		this.idArticle = idArticle;
 		this.libelleArticle = libelleArticle;
-		this.stockArticle = stockArticle;
 		this.famille = famille;
 		this.ssFamille = ssFamille;
 		this.marque = marque;
 	}
 
+	/**
+	 * @return idArticle
+	 */
 	public int getIdArticle() {
 		return idArticle;
 	}
 
+	/**
+	 * @return libelleArticle
+	 */
 	public String getLibelleArticle() {
 		return libelleArticle;
 	}
 
-	public int getStockArticle() {
-		return stockArticle;
-	}
-
+	/**
+	 * @return famille
+	 */
 	public Famille getFamille() {
 		return famille;
 	}
 
+	/**
+	 * @return ssFamille
+	 */
 	public SSFamille getSsFamille() {
 		return ssFamille;
 	}
 
+	/**
+	 * @return marque
+	 */
 	public Marque getMarque() {
 		return marque;
 	}
 
+	/**
+	 * @param idArticle
+	 */
 	public void setIdArticle(int idArticle) {
 		this.idArticle = idArticle;
 	}
 
+	/**
+	 * @param libelleArticle
+	 */
 	public void setLibelleArticle(String libelleArticle) {
 		this.libelleArticle = libelleArticle;
 	}
 
-	public void setStockArticle(int stockArticle) {
-		this.stockArticle = stockArticle;
-	}
-
+	/**
+	 * @param famille
+	 */
 	public void setFamille(Famille famille) {
 		this.famille = famille;
 	}
 
+	/**
+	 * @param ssFamille
+	 */
 	public void setSsFamille(SSFamille ssFamille) {
 		this.ssFamille = ssFamille;
 	}
 
+	/**
+	 * @param marque
+	 */
 	public void setMarque(Marque marque) {
 		this.marque = marque;
 	}
 
-
-
-
 }
-

@@ -1,6 +1,5 @@
 package model;
 
-
 import java.sql.ResultSet;
 import java.sql.SQLException;
 import java.sql.Statement;
@@ -56,34 +55,34 @@ public class DAOCouleur implements DAO<Couleur> {
 	public Couleur find(int id) {
 
 		Couleur color = null;
-		
-		//requete 
+
+		// requete
 		String requete = ("SELECT * FROM couleur WHERE ID_COULEUR = " + id);
 
 		try {
-			
-			//connexion à la BDD
+
+			// connexion à la BDD
 			Statement stmt = ConnectBDD.getConnect().createStatement(ResultSet.TYPE_SCROLL_INSENSITIVE,
 					ResultSet.CONCUR_READ_ONLY);
-			
+
 			// execution de la requete
 			ResultSet result = stmt.executeQuery(requete);
 
 			// s'il y a un resultat, je cree l'objet fam avec les donnees trouvees
 			if (result.first()) {
-				
-				//Correction Code Hexa
+
+				// Correction Code Hexa
 				String HexaTotal = "#";
 				List<String> listRVBHexa = Arrays.asList("HEXA_ROUGE", "HEXA_VERT", "HEXA_BLEU");
-				for (String indiceString : listRVBHexa){
+				for (String indiceString : listRVBHexa) {
 					String hexaX = result.getString(indiceString);
 					if (hexaX.length() < 2) {
-						hexaX="0"+hexaX;
+						hexaX = "0" + hexaX;
 					}
 					HexaTotal += hexaX;
 				}
-				
-				color = new Couleur(id, result.getString("INTITULE_COULEUR"),HexaTotal);
+
+				color = new Couleur(id, result.getString("INTITULE_COULEUR"), HexaTotal);
 				System.out.println("couleur trouvée");
 			}
 			// puis fermeture de la connexion
@@ -109,34 +108,34 @@ public class DAOCouleur implements DAO<Couleur> {
 
 		String requete = "SELECT * FROM couleur ORDER BY ID_COULEUR";
 
-
 		try {
 
 			Statement stmt = ConnectBDD.getConnect().createStatement();
 			// execution de la requete
 			ResultSet result = stmt.executeQuery(requete);
-			
+
 			// tant que...
 			while (result.next()) {
-				
-				//Correction Code Hexa
+
+				// Correction Code Hexa
 				String HexaTotal = "#";
 				List<String> listRVBHexa = Arrays.asList("HEXA_ROUGE", "HEXA_VERT", "HEXA_BLEU");
-				for (String indiceString : listRVBHexa){
+				for (String indiceString : listRVBHexa) {
 					String hexaX = result.getString(indiceString);
 					if (hexaX.length() < 2) {
-						hexaX="0"+hexaX;
+						hexaX = "0" + hexaX;
 					}
 					HexaTotal += hexaX;
 				}
-				
-				listeColor.add(new Couleur(result.getInt("ID_COULEUR"), result.getString("INTITULE_COULEUR"),HexaTotal));
+
+				listeColor
+						.add(new Couleur(result.getInt("ID_COULEUR"), result.getString("INTITULE_COULEUR"), HexaTotal));
 
 			}
 			System.out.println(listeColor.size() + "Couleurs créées.");
 			// puis fermeture de la connexion
 			stmt.close();
-			
+
 			System.out.println("Fermeture statement ok");
 
 		} catch (SQLException e) {
@@ -145,7 +144,7 @@ public class DAOCouleur implements DAO<Couleur> {
 			ConnectBDD.closeConnexion();
 			System.out.println("Fermeture connect ok");
 		}
-		
+
 		return listeColor;
 	}
 
@@ -155,6 +154,4 @@ public class DAOCouleur implements DAO<Couleur> {
 		return "Couleur";
 	}
 
-
 }
-

@@ -3,17 +3,17 @@ package bean;
 import java.util.ArrayList;
 import java.util.List;
 
-
 /**
- * @author florianpuzenat
  * Class comportant des categorie(listes) de filtres
+ * 
+ * @author florianpuzenat Class comportant des categorie(listes) de filtres
  */
 public class BlocFiltre {
 
 	private int idBlocFiltre;
 	private String libelleBlocFiltre;
-	private List<Filtre> listFiltre= new ArrayList<Filtre>();
-	
+	private List<Filtre> listFiltre = new ArrayList<Filtre>();
+
 	/**
 	 * Constructeur
 	 */
@@ -23,6 +23,7 @@ public class BlocFiltre {
 
 	/**
 	 * Constructeur
+	 * 
 	 * @param idBlocFiltre
 	 * @param libelleBlocFiltre
 	 */
@@ -31,10 +32,10 @@ public class BlocFiltre {
 		this.idBlocFiltre = idBlocFiltre;
 		this.libelleBlocFiltre = libelleBlocFiltre;
 	}
-	
-	
+
 	/**
 	 * Constructeur
+	 * 
 	 * @param idBlocFiltre
 	 * @param libelleBlocFiltre
 	 * @param listFiltre
@@ -46,8 +47,6 @@ public class BlocFiltre {
 		this.listFiltre = listFiltre;
 	}
 
-	
-	
 	/**
 	 * @return idBlocFiltre
 	 */
@@ -91,41 +90,46 @@ public class BlocFiltre {
 	}
 
 	/**
-	 * @return checked filter from the list
+	 * check if every or no filter are checked from listFiltre
+	 * 
+	 * @return true/false
 	 */
 	public boolean isAllChecked() {
-		int i = 0 ;
+		int i = 0;
 		for (Filtre indiceFiltre : this.listFiltre) {
 			if (indiceFiltre.isChecked())
 				i++;
-			}
-		
-		if (i == this.listFiltre.size() ||  i == 0) {
+		}
+
+		if (i == this.listFiltre.size() || i == 0) {
 			return true;
 		} else {
 			return false;
 		}
-		
+
 	}
-	
+
 	/**
+	 * Create part of the SQL injection to select selection items
+	 * 
 	 * @return String for oracle SQL
 	 */
-	public String getINSQL(){
-		String s ="";
+	public String getINSQL() {
+		String s = "";
 		if (!this.isAllChecked()) {
-			 for(Filtre indiceFiltre : this.listFiltre) {
-				 if(indiceFiltre.isChecked()) {
-					 if (!s.equals("")) {
-						 s += ", ";
-					 } 
+			for (Filtre indiceFiltre : this.listFiltre) {
+				if (indiceFiltre.isChecked()) {
+					if (!s.equals("")) {
+						s += ", ";
+					}
 					s += indiceFiltre.getIdFiltre();
-				 }
-			 }
-			 s = ( "IN( " + s + ")" );
-		} else { s = null; }
-	return s;
-}
-	
-	 
+				}
+			}
+			s = ("IN( " + s + ")");
+		} else {
+			s = null;
+		}
+		return s;
+	}
+
 }

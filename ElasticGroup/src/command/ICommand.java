@@ -7,11 +7,11 @@ import javax.servlet.http.HttpServletRequest;
 import javax.servlet.http.HttpServletResponse;
 
 /**
- * @author florianpuzenat
  * interface of commands used by the front controler (MVC1 achetype)
+ * 
+ * @author florianpuzenat
  */
 public interface ICommand {
 
-	String execute(HttpServletRequest request, HttpServletResponse response)
-			throws ServletException, IOException;
+	String execute(HttpServletRequest request, HttpServletResponse response) throws ServletException, IOException;
 }

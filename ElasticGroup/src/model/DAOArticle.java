@@ -1,6 +1,5 @@
 package model;
 
-
 import java.sql.ResultSet;
 import java.sql.SQLException;
 import java.sql.Statement;
@@ -57,22 +56,22 @@ public class DAOArticle implements DAO<Article> {
 	public Article find(int id) {
 
 		Article fam = null;
-		
-		//requete 
+
+		// requete
 		String requete = ("SELECT * FROM famille WHERE ID_FAMILLE = " + id);
 
 		try {
-			
-			//connexion à la BDD
+
+			// connexion à la BDD
 			Statement stmt = ConnectBDD.getConnect().createStatement(ResultSet.TYPE_SCROLL_INSENSITIVE,
 					ResultSet.CONCUR_READ_ONLY);
-			
+
 			// execution de la requete
 			ResultSet result = stmt.executeQuery(requete);
 
 			// s'il y a un resultat, je cree l'objet fam avec les donnees trouvees
 			if (result.first()) {
-				//fam = new Article(id, result.getString("NOM_FAMILLE"));
+				// fam = new Article(id, result.getString("NOM_FAMILLE"));
 				System.out.println("Article trouvée");
 			}
 			// puis fermeture de la connexion
@@ -126,26 +125,25 @@ public class DAOArticle implements DAO<Article> {
 		return "Article";
 	}
 
-	
 	public int getCountFiltre(List<BlocFiltre> listBlocFiltre) {
-	
+
 		// Construction de la requete
 		String requete = "SELECT COUNT (*)";
-		
+
 		int nombreArticle = -1;
-	
-		//SELECT * FROM produit WHERE (id_/*NomPremiereTableFiltre*/ = '/*listFiltreFamille.first*/'  /*IfMoreThanOneFiltre OR*/ '/*listFiltreFamille.next*/' /*...*/ ) /*IfSecondeTableFiltre AND*/ (id_/*NomPremiereTableFiltre*/ = '/*listFiltreFamille.first*/'  /*IfMoreThanOneFiltre OR*/ '/*listFiltreFamille.next*/' /*...*/ ) /*...*/
-		//"
+
+		// SELECT * FROM produit WHERE (id_/*NomPremiereTableFiltre*/ =
+		// '/*listFiltreFamille.first*/' /*IfMoreThanOneFiltre OR*/
+		// '/*listFiltreFamille.next*/' /*...*/ ) /*IfSecondeTableFiltre AND*/
+		// (id_/*NomPremiereTableFiltre*/ = '/*listFiltreFamille.first*/'
+		// /*IfMoreThanOneFiltre OR*/ '/*listFiltreFamille.next*/' /*...*/ ) /*...*/
+		// "
 		for (BlocFiltre indiceBlocFiltre : listBlocFiltre) {
-			for (Filtre indiceFiltre : indiceBlocFiltre.getListFiltre() ) {
-				
-				
-				
+			for (Filtre indiceFiltre : indiceBlocFiltre.getListFiltre()) {
+
 			}
 		}
-		
-		
-		
+
 		try {
 
 			Statement stmt = ConnectBDD.getConnect().createStatement();
@@ -154,7 +152,7 @@ public class DAOArticle implements DAO<Article> {
 
 			// recupere le nombre d'article
 			nombreArticle = result.getInt("COUNT(*)");
-			
+
 			// puis fermeture de la connexion
 			stmt.close();
 			System.out.println("Fermeture connexion ok");
@@ -162,17 +160,15 @@ public class DAOArticle implements DAO<Article> {
 		} catch (SQLException e) {
 			e.printStackTrace();
 		}
-		
-		return nombreArticle ;
+
+		return nombreArticle;
 	}
-	
-	public List<Article> FindSelectedFiltre(){
-		
+
+	public List<Article> FindSelectedFiltre() {
+
 		ArrayList<Article> listArt = new ArrayList<Article>();
-		
+
 		return listArt;
 	}
-	
 
 }
-

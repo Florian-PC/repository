@@ -10,24 +10,24 @@ import service.Service;
 
 /**
  * @author florianpuzenat
- * @see controler.FrontController
- * command return JPS catologue  if login success
+ * @see controler.FrontController command return JPS catologue if login success
  */
 public class CommandLogin implements ICommand {
 
 	@Override
 	public String execute(HttpServletRequest request, HttpServletResponse response)
 			throws ServletException, IOException {
-				
-		//recuperation du log et mp entré dans le formulaire
-		Service.getSessionBeanBrowser(request).setClient(new User(request.getParameter("txtLogin"), request.getParameter("txtPassword")));
-		
-		//verification du login et redirection en fonction
+
+		// recuperation du log et mp entré dans le formulaire
+		Service.getSessionBeanBrowser(request)
+				.setClient(new User(request.getParameter("txtLogin"), request.getParameter("txtPassword")));
+
+		// verification du login et redirection en fonction
 		if (Service.getSessionBeanBrowser(request).getClient().validate()) {
-			//log ok --> on envoi sur le catalogue
+			// log ok --> on envoi sur le catalogue
 			return "/WEB-INF/jsp/catalogue.jsp";
-		}else {
-			//log pas ok --> retour login
+		} else {
+			// log pas ok --> retour login
 			return "/WEB-INF/jsp/login.jsp";
 		}
 	}

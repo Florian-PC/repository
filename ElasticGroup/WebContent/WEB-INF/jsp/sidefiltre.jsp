@@ -3,32 +3,43 @@
 <%@page import="bean.Filtre"%>
 <%@page import="service.Service"%>
 
-<form  method="post" action="frontcontroller?cmd=CommandFiltre">
-	<input name='btnConnect' type='submit' value='Filtrer' />
-	<% 	for (BlocFiltre indiceBlocFiltre : Service.getSessionBeanBrowser(request).getListBlocFiltre()) { %>
-			<fieldset id="indiceBlocFiltre.getFieldIdBlocFiltre()">
-			
-			<legend><%= indiceBlocFiltre.getLibelleBlocFiltre() %></legend>
-			
-			<% 	for (Filtre indiceFiltre : indiceBlocFiltre.getListFiltre()) { %>
-					<div>
-					<input type="checkbox"
-					id="<%= indiceBlocFiltre.getIdBlocFiltre()+ " " +indiceFiltre.getIdFiltre() %>"
-					name="<%= indiceBlocFiltre.getIdBlocFiltre()+ " " +indiceFiltre.getIdFiltre() %>"
-					<%= indiceFiltre.getChecked()%>> 
-					<label for="<%= indiceBlocFiltre.getIdBlocFiltre()+ " " +indiceFiltre.getIdFiltre() %>">
-					<%	if( indiceFiltre.getColorFiltre() != null) { %>
-							<div
-								style='	width:30px;
+<form method="post" action="frontcontroller?cmd=CommandFiltre">
+	<input class="button" name='btnConnect' type='submit' value='Filtrer' />
+	<%
+		for (BlocFiltre indiceBlocFiltre : Service.getSessionBeanBrowser(request).getListBlocFiltre()) {
+	%>
+	<fieldset id="indiceBlocFiltre.getFieldIdBlocFiltre()">
+
+		<legend><%=indiceBlocFiltre.getLibelleBlocFiltre()%></legend>
+
+		<%
+			for (Filtre indiceFiltre : indiceBlocFiltre.getListFiltre()) {
+		%>
+		<div>
+			<input type="checkbox"
+				id="<%=indiceBlocFiltre.getIdBlocFiltre() + " " + indiceFiltre.getIdFiltre()%>"
+				name="<%=indiceBlocFiltre.getIdBlocFiltre() + " " + indiceFiltre.getIdFiltre()%>"
+				<%=indiceFiltre.getChecked()%>> <label
+				for="<%=indiceBlocFiltre.getIdBlocFiltre() + " " + indiceFiltre.getIdFiltre()%>">
+				<%
+					if (indiceFiltre.getColorFiltre() != null) {
+				%>
+				<div
+					style='	width:30px;
 										height:20px; 
 										display:inline-block; 
-										background-color:<%= indiceFiltre.getColorFiltre() %>'>
-							</div> 
-					<%	} %> 
-					<%= indiceFiltre.getLibelleFiltre() %>
-				</label> <br>
-			<%	} %>
-			</div>
-			</fieldset>
-	<%	} %>
+										background-color:<%=indiceFiltre.getColorFiltre()%>'>
+				</div> <%
+ 	}
+ %> <%=indiceFiltre.getLibelleFiltre()%>
+			</label>
+		</div>
+		<%
+			}
+		%>
+		</div>
+	</fieldset>
+	<%
+		}
+	%>
 </form>

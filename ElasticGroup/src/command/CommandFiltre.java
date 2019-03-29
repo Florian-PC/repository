@@ -8,8 +8,7 @@ import javax.servlet.http.HttpServletResponse;
 
 /**
  * @author florianpuzenat
- * @see controler.FrontController
- * command return JPS catologue 
+ * @see controler.FrontController command return JPS catologue
  */
 public class CommandFiltre implements ICommand {
 
@@ -17,8 +16,7 @@ public class CommandFiltre implements ICommand {
 	public String execute(HttpServletRequest request, HttpServletResponse response)
 			throws ServletException, IOException {
 
-		
-		return "/WEB-INF/jsp/catalogue.jsp";	
-		}
+		return "/WEB-INF/jsp/catalogue.jsp";
+	}
 
 }

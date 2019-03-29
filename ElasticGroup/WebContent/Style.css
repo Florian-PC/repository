@@ -1,118 +1,90 @@
 @charset "UTF-8";
 
 /* Toutes les pages */
- #catalogue, #login{
-     background-color: #595959 ;
-     color: black ;}
- 
- /* header */
- #header {
-     	display: inline-block;
-		horizontal-align: center;
-     	text-align: center;
+#catalogue, #login {
+	background-color: #595959;
+	color: white;
 }
- /* logo du header */
- #header img{
-     height: 5%;
-     width: 5%;
-     padding-top: 5px;
-     vertical-align: bottom;
+
+#catalogue span {
+	display: inline-block;
+}
+
+/* header */
+#header {
+	margin: 0 auto;
+	text-align: center;
+}
+/* logo du header */
+#header img {
+	height: 5%;
+	width: 5%;
+	padding-top: 5px;
+	vertical-align: bottom;
 }
 /* nom entreprise header */
- #header h1{
-     font-family: sans-serif;
-     display: inline;
+#header h1 {
+	font-family: sans-serif;
+	display: inline;
 }
 
-
- #login div {
- 	align : center;
- }
-
-/* Zone Filtres */
- #sidefiltre {
-     display: inline-block;
-     vertical-align: text-top;
-     width: 25%;
-     text-align: left;
+#login div {
+	align: center;
 }
+
+/* Zone(list) BlocFiltres */
+#sidefiltre {
+	display: inline-block;
+	vertical-align: text-top;
+	width: 25%;
+	text-align: left;
+}
+/* Bouton filtrer */
+#sidefiltre .button {
+	background-color: #43994E;
+	border: none;
+	color: white;
+	padding: 15px 32px;
+	text-align: center;
+	text-decoration: none;
+	display: inline-block;
+	font-size: 18px;
+	margin: 4px 2px;
+	cursor: pointer;
+	border-radius: 10px;
+}
+
 /* BlocFiltre */
- #sidefiltre fieldset{
-     max-height: 400px;
-     min-width: 0;
-     text-overflow: clip;
-     overflow-y: auto;
+#sidefiltre fieldset {
+	max-height: 400px;
+	min-width: 0;
+	text-overflow: clip;
+	overflow-y: auto;
+	border-radius: 10px;
+	margin: 5px;
+}
+/* titre blocFiltre */
+#sidefiltre fieldset legend {
+	font-size: 24px;
+	font-weight: bold;
 }
 /* Filtre */
- #sidefiltre fieldset div{
-     padding-top: 2px;
-     padding-bottom: 2px;
-     min-width: 0;
-     max-width: 100%;
-     white-space: nowrap;
-     text-overflow: clip;
-     overflow: hidden;
+#sidefiltre fieldset div {
+	padding-top: 2px;
+	padding-bottom: 2px;
+	min-width: 0;
+	max-width: 100%;
+	white-space: nowrap;
+	text-overflow: clip;
+	overflow: hidden;
 }
+/* hover filtre */
+#sidefiltre fieldset div:hover {
+	background-color: #777878;
+	border-radius: 5px;
+}
+
 /* Carré couleur du filtre couleur */
- #sidefiltre fieldset div div{
-     vertical-align: bottom;
+#sidefiltre fieldset div div {
+	vertical-align: bottom;
 }
-
-/* Toutes les pages */
- #catalogue, #login{
-     background-color: #595959 ;
-     color: #ffffff ;}
-/* header */
-/* #header {
-     display: inline-block;
-     vertical-align: text-top;
-     text-align: center;
-}
- #header img{
-     height: 5%;
-     width: 5%;
-     padding-top: 5px;
-     vertical-align: bottom;
-}
- #header h1{
-     font-family: sans-serif;
-     display: inline;
-}
- #header label{
-     text-align: left;
-}
- #login div {
- 	float : center;
- }
-
-
- #sidefiltre {
-     display: inline-block;
-     vertical-align: text-top;
-     width: 25%;
-     text-align: left;
-}
- #sidefiltre fieldset{
-     max-height: 400px;
-     min-width: 0;
-     text-overflow: clip;
-     overflow-y: auto;
-}
- #sidefiltre fieldset div{
-     padding-top: 2px;
-     padding-bottom: 2px;
-     min-width: 0;
-     max-width: 100%;
-     white-space: nowrap;
-     text-overflow: clip;
-     overflow: hidden;
-}
- #sidefiltre fieldset div div{
-     vertical-align: bottom;
-}
- #magasin {
-     display: inline-block;
->>>>>>> branch 'master' of https://github.com/Florian-PC/repository.git
-     vertical-align: text-top;
-}
-  */

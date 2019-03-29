@@ -1,10 +1,9 @@
 package service;
 
 /**
+ * Don't ask
  * @author florianpuzenat
- * Don t ask
  */
 public class ServiceMagasin {
-	
-	
+
 }

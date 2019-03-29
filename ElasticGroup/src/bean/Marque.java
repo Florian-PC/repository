@@ -1,16 +1,15 @@
 package bean;
 
-
 /**
- * @author florianpuzenat
+ * @author florianpuzenat 
  * bean marque
  */
 
-public class Marque implements IFiltrable{
+public class Marque implements IFiltrable {
 
 	private int idMarque;
 	private String libelleMarque;
-	
+
 	/**
 	 * constructeur
 	 */
@@ -20,6 +19,7 @@ public class Marque implements IFiltrable{
 
 	/**
 	 * constructeur
+	 * 
 	 * @param idMarque
 	 * @param libelleMarque
 	 */
@@ -83,6 +83,5 @@ public class Marque implements IFiltrable{
 		// TODO Auto-generated method stub
 		return null;
 	}
-	
-	
+
 }

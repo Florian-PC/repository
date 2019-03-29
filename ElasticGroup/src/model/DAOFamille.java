@@ -1,6 +1,5 @@
 package model;
 
-
 import java.sql.ResultSet;
 import java.sql.SQLException;
 import java.sql.Statement;
@@ -56,16 +55,16 @@ public class DAOFamille implements DAO<Famille> {
 	public Famille find(int id) {
 
 		Famille fam = null;
-		
-		//requete 
+
+		// requete
 		String requete = ("SELECT * FROM famille WHERE ID_FAMILLE = " + id);
 
 		try {
-			
-			//connexion à la BDD
+
+			// connexion à la BDD
 			Statement stmt = ConnectBDD.getConnect().createStatement(ResultSet.TYPE_SCROLL_INSENSITIVE,
 					ResultSet.CONCUR_READ_ONLY);
-			
+
 			// execution de la requete
 			ResultSet result = stmt.executeQuery(requete);
 
@@ -127,4 +126,3 @@ public class DAOFamille implements DAO<Famille> {
 	}
 
 }
-

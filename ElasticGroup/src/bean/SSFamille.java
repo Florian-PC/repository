@@ -1,15 +1,14 @@
 package bean;
 
-
 /**
- * @author florianpuzenat
+ * @author florianpuzenat 
  * bean Sous Famille
  */
-public class SSFamille implements IFiltrable{
+public class SSFamille implements IFiltrable {
 
 	private int idSSFamille;
 	private String libelleSSFamille;
-	
+
 	/**
 	 * Constructeur
 	 */
@@ -19,6 +18,7 @@ public class SSFamille implements IFiltrable{
 
 	/**
 	 * Constructeur
+	 * 
 	 * @param idSSFamille
 	 * @param libelleSSFamille
 	 */
@@ -82,6 +82,5 @@ public class SSFamille implements IFiltrable{
 		// TODO Auto-generated method stub
 		return null;
 	}
-	
-	
+
 }

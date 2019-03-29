@@ -1,15 +1,15 @@
 package bean;
 
 /**
- * @author florianpuzenat
+ * @author florianpuzenat 
  * Bean Couleur
  */
-public class Couleur implements IFiltrable{
+public class Couleur implements IFiltrable {
 
 	private int idColor;
 	private String libelleColor;
 	private String codeHexa;
-	
+
 	/**
 	 * Constructeur
 	 */
@@ -19,6 +19,7 @@ public class Couleur implements IFiltrable{
 
 	/**
 	 * Constructeur
+	 * 
 	 * @param idColor
 	 * @param libelleColor
 	 * @param codeHexa
@@ -99,6 +100,4 @@ public class Couleur implements IFiltrable{
 		return this.codeHexa;
 	}
 
-	
-	
 }

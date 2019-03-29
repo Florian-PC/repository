@@ -5,11 +5,11 @@ import javax.servlet.http.HttpServletRequest;
 import bean.BeanBrowser;
 
 /**
- * @author florianpuzenat
  * Class used to call beanbrowser
+ * @author florianpuzenat 
  */
 public class Service {
-	
+
 	/**
 	 * @param request
 	 * @return beanbrowser

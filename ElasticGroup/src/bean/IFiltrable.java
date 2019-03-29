@@ -1,8 +1,9 @@
 package bean;
 
 /**
- * @author florianpuzenat
- * interface created to unify (suppress fake casting problem) filters
+ * @author florianpuzenat 
+ * interface created to unify (suppress fake casting
+ * problem) filters
  * @see bean.Famille
  * @see bean.SSFamille
  * @see bean.Marque
@@ -11,8 +12,8 @@ package bean;
 public interface IFiltrable {
 
 	public int getId();
-	
+
 	public String getLibelle();
-	
+
 	public String getColor();
 }
